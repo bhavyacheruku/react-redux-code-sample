@@ -1,0 +1,23 @@
+.appDetails {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    top: 15%;
+}
+.appDetails > div {
+    flex-basis: 55%;
+    min-height: 10em;
+    margin-right: 5em;
+    border: 0.5px solid #ddd;
+}
+.appDetails > div > div {
+    width: 30em;
+}
+.title {
+    text-align: center;
+    margin-top: 2em;
+    font-family: fantasy;
+    font-size: 1em;
+}

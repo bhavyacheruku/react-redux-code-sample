@@ -1,0 +1,80 @@
+.pieChart {
+    border: 1px solid #000;
+    border-radius: 11em;
+    height: 10em;
+    width: 10em;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, 55%);
+}
+.pieChartBlocks {
+    background: #ddd;
+    border: 2px solid #ddd;
+    position: absolute;
+    width: 13em;
+    height: 9em;
+    top: 14%;
+    transition: all 1s;
+    border-radius: 75px;
+    clip: rect(0px, 69px, 200px, 0px);
+}
+.barChart {
+    border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+    left: 58%;
+    height: 20em;
+    width: 25em;
+    position: relative;
+    transform: translate(-50%, 10%);
+    display: block;
+    animation-name: fadeInBlocks;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.2s;
+}
+@keyframes fadeInBlocks {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.barChartBlocks {
+    max-height: 20em;
+    bottom: 0;
+    width: 2em;
+    margin-left: 3em;
+    position: absolute;
+    transition: all .5s ease;
+}
+.charts {
+    display: flex;
+    flex-direction: row;
+}
+.tooltip {
+    visibility: hidden;
+}
+.barChartBlocks:hover .tooltip {
+    visibility: visible;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    cursor: help;
+    top: -29px;
+    font-family: cursive;
+    width: 0;
+    height: 0;
+  }
+  .graphDetailYAxis {
+    transform: scaleX(1) rotate(-90deg) translate(-125%, -135%);
+    display: inline-block;
+    font-family: cursive;
+  }
+  .graphDetailsXAxis {
+    bottom: 1.2em;
+    position: absolute;
+    margin-left: 12em;
+    font-family: cursive;
+  }

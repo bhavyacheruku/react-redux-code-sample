@@ -1,1 +1,4 @@
-# react-redux-code-sample
+```
+> npm install
+> npm start
+```

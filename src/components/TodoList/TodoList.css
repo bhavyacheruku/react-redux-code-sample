@@ -1,0 +1,44 @@
+.list-group-item {
+    background: #ddd; 
+    list-style-type: none;
+    padding: 2em;
+}
+
+.list-group {
+    padding-left: 0;
+    overflow-y: scroll;
+    height: 25em;
+    transition: all 0.2s ease-in-out;
+}
+
+.noItems {
+    text-align: center;
+    margin-top :3em;
+    font-size: 1.2em;
+}
+
+
+.list-group-item:nth-child(odd) {
+    background: #e0e0e07a;
+}
+.listStatus {
+    float: right;
+    text-decoration: underline;
+    color: #87608b;
+}
+.statusCompletedTick {
+    visibility: visible;
+    display: inline-block;
+    color: #00BCD4;
+    padding: 0 6px 0 0;
+    -ms-transform: scaleX(-1) rotate(-35deg);
+    -webkit-transform: scaleX(-1) rotate(-35deg);
+    transform: scaleX(-1) rotate(-35deg);
+    font-size: 1em;
+    margin-right: 1em;
+    font-weight: bold;
+    font-family: arial;
+}
+.visibilityHidden {
+    visibility: hidden;
+}
