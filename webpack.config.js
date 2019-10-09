@@ -23,7 +23,11 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './',
+    port:"8001",
+    proxy: {
+      "/api": "http://localhost:3050"
+    }
   },
   devtool: 'inline-source-map',
 };

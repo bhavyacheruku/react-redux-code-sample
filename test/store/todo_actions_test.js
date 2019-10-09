@@ -35,4 +35,12 @@ describe('todo actions', () => {
             });
         });
     }); 
+    describe('getTodos actions',  () => {
+        it('creates FETCH_TODO_ITEM_SUCCESS when saving has been done', () => {
+            const store = mockStore({ todoList: [] })
+            return store.dispatch(actions.getTodos()).then(() => {
+                expect(store.getActions()).to.have.deep.property('[0].type', types.FETCH_TODO_ITEM_SUCCESS)
+            });
+        });       
+    }); 
 })

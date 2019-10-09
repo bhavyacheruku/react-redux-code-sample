@@ -4,7 +4,8 @@ import Immutable from 'seamless-immutable';
 const initialState = Immutable({
   todoList: [],
   isErrorAddingItem: false,
-  isErrorUpdatingStatus: false
+  isErrorUpdatingStatus: false,
+  isFecthingTodo: false
 })
 
 export default function reduce(state = initialState, action ={}) {
@@ -26,6 +27,15 @@ export default function reduce(state = initialState, action ={}) {
         case types.UPDATE_TODO_ITEM_FAILURE:
             return state.merge({
                 isErrorUpdatingStatus: true
+            });
+        case types.FETCH_TODO_ITEM_SUCCESS:
+            return state.merge({
+                todoList: action.payload,
+                isFecthingTodo: false
+            });
+        case types.FETCH_TODO_ITEM_FAILURE:
+            return state.merge({
+                isFecthingTodo: true
             });
         default:
           return state;

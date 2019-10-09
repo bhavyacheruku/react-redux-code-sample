@@ -11,7 +11,7 @@ class TodoListComponent extends Component {
                         <li key={i} className='list-group-item'>
                             <span className={item.status === 'done' ? 'statusCompletedTick' :  'statusCompletedTick visibilityHidden'}>L</span>
                             {item.item} 
-                            <span className='listStatus' onClick={() => this.props.markStatus(i, item.status === 'done' ?  'new' : 'done')}>
+                            <span className='listStatus' onClick={(e) => this.props.markStatus(i, item.status === 'done' ?  'new' : 'done')}>
                                 {item.status === 'done' ?  'UNDO' : 'Mark Done'}
                             </span>
                         </li>
