@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { markStatus }  from  '../../store/todo/action';
+import { markStatus, getTodos }  from  '../../store/todo/action';
 import TodoListComponent from '../../components/TodoList/TodoListComponent';
 import PropTypes from 'prop-types';
 
 class TodoList extends Component {
+    componentDidMount() {
+       this.props.getTodos()
+    }
     render() {
         return (
             <div className='list'>
@@ -26,7 +29,8 @@ class TodoList extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    markStatus: (itemIndex, status) => dispatch(markStatus(itemIndex, status))
+    markStatus: (itemIndex, status) => dispatch(markStatus(itemIndex, status)),
+    getTodos: () => dispatch(getTodos())
 });
 const mapStateToProps = (state) => ({
     todoList: state.todo.todoList

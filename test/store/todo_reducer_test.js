@@ -8,7 +8,8 @@ const statusChanged = [{category:'test', name: 'testing', status:'done'}]
 const initialState = Immutable({
     todoList: [],
     isErrorAddingItem: false,
-    isErrorUpdatingStatus: false
+    isErrorUpdatingStatus: false,
+    isFecthingTodo: false
   })
 
 describe('todos reducer', () => {
@@ -25,7 +26,8 @@ describe('todos reducer', () => {
       {
         todoList: mockObject,
         isErrorAddingItem: false,
-        isErrorUpdatingStatus: false
+        isErrorUpdatingStatus: false,
+        isFecthingTodo: false
       }
     )
   });
@@ -50,7 +52,8 @@ describe('todos reducer', () => {
       {
         todoList: statusChanged,
         isErrorAddingItem: false,
-        isErrorUpdatingStatus: false
+        isErrorUpdatingStatus: false,
+        isFecthingTodo: false
       }
     )
   });

@@ -5,7 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/bhavyacheruku/react-redux-code-sample",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "start": "concurrently \"npm run start-server\" \"npm run start-web\"",
+    "start-server": "\"cd server && node BaseService.js\"",
+    "start-web": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js ",
     "test": "mocha --compilers js:babel-core/register --require ignore-styles --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
@@ -35,6 +37,9 @@
   },
   "dependencies": {
     "babel-preset-stage-1": "^6.1.18",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.0.0",
+    "express": "^4.17.1",
     "prop-types": "^15.7.2",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
@@ -44,6 +49,8 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
-    "seamless-immutable": "^7.1.4"
+    "seamless-immutable": "^7.1.4",
+    "sinon": "^7.5.0",
+    "superagent": "^5.1.0"
   }
 }

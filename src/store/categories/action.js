@@ -1,4 +1,4 @@
-import MockApiCall from '../../server/MockApiCall';
+import MockApiCall from '../../../server/MockApiCall';
 import * as types from './actionTypes'
 export function getCategoriesList() {
     return async dispatch => {
