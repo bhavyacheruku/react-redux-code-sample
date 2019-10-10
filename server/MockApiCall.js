@@ -27,14 +27,9 @@ class MockApiCall {
         }
     }
     async updateStatus (itemIndex, status) {
+        if(!(typeof itemIndex === 'number' && status))  throw new Error('Missing Parameters');
+        if(status !== 'done' && status !== 'new') throw new Error('Incorrect Parameters');
         try {
-            const options = {
-                method: 'PUT',
-                body: JSON.stringify(),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }
             const response = await superagent.put('/api/updateTodoStatus', {itemIndex, status}).set('Content-Type', 'application/json');
             return response.body;
         } catch (e) {

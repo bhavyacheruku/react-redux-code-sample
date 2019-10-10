@@ -1,65 +1,48 @@
 import { expect } from 'chai';
 import mockApiCall from '../server/MockApiCall';
+import sinon from 'sinon';
 
 describe('mock api calls ', () => {
-    const name = 'testing';
-    const category = 'test';
+
     describe('saveItem function ',  () => {
+             
         it('should save the items', () => {
-            mockApiCall.saveItem(category, name).then((object) => {
-                expect(object).to.have.deep.members([{category,  item, 'status': 'new'}]);
-            })
+            const stub = sinon.spy(mockApiCall, 'saveItem')
+            stub.restore(); 
+            stub('testing', 'test')      
+            sinon.assert.calledOnce(stub)
         });
-        it('should return the items after saving', () => {
-            mockApiCall.saveItem(category, name).then((object) => {
-                expect(object).to.be.an('array');
-            })
-        });
-        it('should check if params are passed', () => {
-            mockApiCall.saveItem().then((object) => {
-                expect(object).to.throw('Missing parameters');
-            })
-        });
-        it('should throw if invalid params passed', () => {
-            mockApiCall.saveItem(undefined, null).then((object) => {
-                expect(object).to.throw();
-            })
+        it('should check if params are passed', async () => {
+            const stub = sinon.spy(mockApiCall, 'saveItem')
+            stub.restore(); 
+            let error = ''
+            await stub().catch ((e)  => { error = e})
+            expect(error).to.deep.equal(new Error("Missing Parameters"))           
         });
     });
-    describe('updateStatus function ',  () => {
-        it('should update the items status', () => {
-            mockApiCall.updateStatus(0, 'done').then((object) => {
-                expect(object).to.have.deep.property('[0].status', 'done');
+    describe('updateStatus function ',  () => {  
+        const stubSaveItem = sinon.stub(mockApiCall, 'saveItem')
+        stubSaveItem.restore();  
+        stubSaveItem.withArgs('testing', 'test')
+        it('should check if params are passed', async () => {
+            const stub = sinon.spy(mockApiCall, 'updateStatus')
+            stub.restore();
+            let error = ''
+            await stub().then(() => {
+            }).catch((e) => {
+                error = e
             })
+            expect(error).to.deep.equal(new Error("Missing Parameters"))
         });
-        it('should return the items after saving', () => {
-            mockApiCall.updateStatus(0, 'done').then((object) => {
-                expect(object).to.be.an('array');
+        it('should throw if invalid params passed', async() => {
+            const stub = sinon.spy(mockApiCall, 'updateStatus')
+            stub.restore();
+            let error = ''
+            await stub(null, 'done').then((object) => {
+            }).catch((e) => {
+                error = e
             })
-        });
-        it('should check if params are passed', () => {
-            mockApiCall.updateStatus().then((object) => {
-                expect(object).to.throw('Missing parameters');
-            })
-        });
-        it('should throw if invalid params passed', () => {
-            mockApiCall.updateStatus("1", null).then((object) => {
-                expect(object).to.throw();
-            })
-        });
-    });
-    describe('getCategories function ',  () => {
-        it('should return the categories', () => {
-            mockApiCall.getCategories().then((object) => {
-                expect(object).to.be.an('array');
-            })
-        });
-    });
-    describe('getTodos function ',  () => {
-        it('should return the categories', () => {
-            mockApiCall.getTodos().then((object) => {
-                expect(object).to.be.an('array');
-            })
+            expect(error).to.deep.equal(new Error("Missing Parameters"))
         });
     });
 });
