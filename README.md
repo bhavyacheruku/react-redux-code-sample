@@ -12,4 +12,5 @@ Run the application with the following commands
 > npm install
 > npm start
 ```
-
+Demo
+![](https://github.com/bhavyacheruku/react-redux-code-sample/blob/master/listItemsAnalytics.gif)
