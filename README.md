@@ -13,4 +13,4 @@ Run the application with the following commands
 > npm start
 ```
 Demo
-![](https://github.com/bhavyacheruku/react-redux-code-sample/blob/master/listItemsAnalytics.gif)
+![](https://github.com/bhavyacheruku/react-redux-code-sample/blob/master/listItemsAnalyticsdemo.gif)
